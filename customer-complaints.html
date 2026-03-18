@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File a Complaint - SwiftDrop</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-truck-fast"></i>
+                </div>
+                <div class="logo-text">
+                    <span class="logo-main">SwiftDrop</span>
+                    <span class="logo-sub">Logistics</span>
+                </div>
+            </a>
+            <a href="track.html" class="btn-primary">Track Package</a>
+        </div>
+    </nav>
+
+    <section style="padding: 100px 0; background: linear-gradient(135deg, #fef7ff 0%, #f3e8ff 100%); min-height: 100vh;">
+        <div class="container">
+            <div class="section-header" style="text-align: center; margin-bottom: 60px;">
+                <span class="section-tag" style="background: #ef4444; color: white;">Customer Support</span>
+                <h2>File a Complaint</h2>
+                <p>We're sorry to hear you're having an issue. Our team will respond within 24 hours.</p>
+            </div>
+
+            <div class="complaint-container" style="max-width: 700px; margin: 0 auto; background: white; padding: 40px; border-radius: 24px; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);">
+                <form id="complaintForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Tracking Number (if applicable)</label>
+                            <input type="text" id="trackingNumber" placeholder="SD123456789">
+                        </div>
+                        <div class="form-group">
+                            <label>Your Email *</label>
+                            <input type="email" id="customerEmail" placeholder="your@email.com" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Your Name *</label>
+                            <input type="text" id="customerName" placeholder="John Doe" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Phone Number</label>
+                            <input type="tel" id="customerPhone" placeholder="+1 (555) 123-4567">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Complaint Category *</label>
+                        <select id="complaintCategory" required>
+                            <option value="">Select category</option>
+                            <option value="delay">Delivery Delay</option>
+                            <option value="damage">Package Damage</option>
+                            <option value="missing">Missing Items</option>
+                            <option value="wrong-delivery">Wrong Delivery Address</option>
+                            <option value="tracking-issue">Tracking Issue</option>
+                            <option value="customer-service">Customer Service</option>
+                            <option value="billing">Billing Issue</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Subject *</label>
+                        <input type="text" id="complaintSubject" placeholder="Brief description of your issue" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Detailed Description *</label>
+                        <textarea id="complaintDescription" rows="6" placeholder="Please describe your issue in detail..." required></textarea>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Upload Photos/Evidence (optional)</label>
+                            <input type="file" id="complaintPhotos" accept="image/*" multiple>
+                        </div>
+                        <div class="form-group">
+                            <label>Priority</label>
+                            <select id="complaintPriority">
+                                <option value="normal">Normal</option>
+                                <option value="urgent">Urgent</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn-primary btn-full" style="margin-top: 30px;">
+                        <i class="fas fa-paper-plane"></i> Submit Complaint
+                    </button>
+                </form>
+
+                <div id="complaintSuccess" style="display: none; text-align: center; margin-top: 40px; padding: 30px; background: #dcfce7; border-radius: 16px; border: 2px solid #bbf7d0;">
+                    <i class="fas fa-check-circle" style="font-size: 48px; color: #16a34a; margin-bottom: 20px;"></i>
+                    <h3>Complaint Submitted Successfully!</h3>
+                    <p>Your complaint has been received. Our support team will contact you within 24 hours.</p>
+                    <div id="complaintIdDisplay"></div>
+                    <a href="track.html" class="btn-primary" style="margin-top: 20px;">Track Package</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        document.getElementById('complaintForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const complaintData = {
+                id: 'CMP' + Date.now().toString().slice(-8),
+                trackingNumber: document.getElementById('trackingNumber').value,
+                customerEmail: document.getElementById('customerEmail').value,
+                customerName: document.getElementById('customerName').value,
+                customerPhone: document.getElementById('customerPhone').value,
+                category: document.getElementById('complaintCategory').value,
+                subject: document.getElementById('complaintSubject').value,
+                description: document.getElementById('complaintDescription').value,
+                priority: document.getElementById('complaintPriority').value,
+                status: 'new',
+                date: new Date().toLocaleString(),
+                photos: Array.from(document.getElementById('complaintPhotos').files).map(file => URL.createObjectURL(file))
+            };
+
+            // Save to localStorage for admin to see
+            const complaints = JSON.parse(localStorage.getItem('complaints') || '{}');
+            complaints[complaintData.id] = complaintData;
+            localStorage.setItem('complaints', JSON.stringify(complaints));
+
+            // Hide form, show success
+            document.getElementById('complaintForm').style.display = 'none';
+            document.getElementById('complaintSuccess').style.display = 'block';
+            document.getElementById('complaintIdDisplay').innerHTML = `<strong>Complaint ID:</strong> <code>${complaintData.id}</code>`;
+
+            // Notify admin (simulate)
+            console.log('Admin notified of new complaint:', complaintData.id);
+        });
+    </script>
+</body>
+</html>

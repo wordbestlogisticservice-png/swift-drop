@@ -1,0 +1,265 @@
+ent i pm<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Track Package - SwiftDrop</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-truck-fast"></i>
+                </div>
+                <div class="logo-text">
+                    <span class="logo-main">SwiftDrop</span>
+                    <span class="logo-sub">Logistics</span>
+                </div>
+            </a>
+            <a href="#track" class="btn-primary">Track Another</a>
+        </div>
+    </nav>
+
+    <main style="padding: 100px 0; background: var(--light); min-height: 100vh;">
+        <div class="container">
+            <!-- Tracking Form -->
+            <div class="track-section" style="padding: 0 0 60px 0;">
+                <div style="max-width: 600px; margin: 0 auto; text-align: center;">
+                    <h2 style="font-size: 2.5rem; margin-bottom: 20px;">Track Your Package</h2>
+                    <div class="track-form">
+                        <div class="track-input-group">
+                            <i class="fas fa-barcode"></i>
+                            <input type="text" id="trackingInput" placeholder="Enter tracking number" value="">
+                        </div>
+                        <button onclick="trackPackage()" class="btn-track">
+                            <i class="fas fa-search"></i> Track
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tracking Result -->
+            <div id="trackResult" style="display: none;">
+                <div class="track-result-large">
+                    <div class="result-header">
+                        <div class="result-status-large">
+                            <div class="status-icon-large" id="statusIcon"></div>
+                            <span id="statusTextLarge"></span>
+                        </div>
+                        <div class="result-id-large" id="resultIdLarge"></div>
+                    </div>
+                    
+                    <!-- Live Location -->
+                    <div style="background: white; border-radius: 20px; padding: 30px; margin: 40px 0; box-shadow: var(--shadow-lg);">
+                        <h3 style="margin-bottom: 20px; display: flex; align-items: center; gap: 12px;">
+                            <i class="fas fa-map-marker-alt" style="color: var(--primary);"></i>
+                            Live Location
+                        </h3>
+                        <div id="liveLocation" style="font-size: 24px; font-weight: 700; color: var(--primary);"></div>
+                        <div id="customsStatus" style="margin-top: 12px; padding: 12px 20px; border-radius: 12px; background: rgba(245, 158, 11, 0.1); color: #d97706; font-weight: 500; display: none;"></div>
+                    </div>
+                    
+                    <!-- Progress Timeline -->
+                    <div class="progress-section">
+                        <div class="progress-line-full">
+                            <div class="progress-fill-full" id="progressFillFull"></div>
+                        </div>
+                        <div class="progress-stops-full">
+                            <div class="stop-full" data-step="1">
+                                <i class="fas fa-box"></i>
+                                <span>Picked Up</span>
+                            </div>
+                            <div class="stop-full connector" data-step="2">
+                                <div class="connector-line"></div>
+                            </div>
+                            <div class="stop-full" data-step="2">
+                                <i class="fas fa-warehouse"></i>
+                                <span>Warehouse</span>
+                            </div>
+                            <div class="stop-full connector" data-step="3">
+                                <div class="connector-line"></div>
+                            </div>
+                            <div class="stop-full" data-step="3">
+                                <i class="fas fa-plane"></i>
+                                <span>In Transit</span>
+                            </div>
+                            <div class="stop-full connector" data-step="4">
+                                <div class="connector-line"></div>
+                            </div>
+                            <div class="stop-full" data-step="4">
+                                <i class="fas fa-passport"></i>
+                                <span>Customs</span>
+                            </div>
+                            <div class="stop-full connector" data-step="5">
+                                <div class="connector-line"></div>
+                            </div>
+                            <div class="stop-full" data-step="5">
+                                <i class="fas fa-home"></i>
+                                <span>Delivered</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Package Details -->
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; margin: 40px 0;">
+                        <div style="background: white; padding: 30px; border-radius: 20px; box-shadow: var(--shadow);">
+                            <h4 style="margin-bottom: 20px;">📋 Package Details</h4>
+                            <div id="packageDetails"></div>
+                        </div>
+                        <div style="background: white; padding: 30px; border-radius: 20px; box-shadow: var(--shadow);">
+                            <h4 style="margin-bottom: 20px;">📸 Proof of Package</h4>
+                            <div id="proofSection" style="text-align: center;"></div>
+                        </div>
+                    </div>
+                    
+                    <!-- Timeline Updates -->
+                    <div style="background: white; border-radius: 20px; padding: 30px; box-shadow: var(--shadow);">
+                        <h4 style="margin-bottom: 24px; display: flex; align-items: center; gap: 12px;">
+                            <i class="fas fa-clock"></i> Timeline Updates
+                        </h4>
+                        <div id="timelineUpdates"></div>
+                    </div>
+                    
+                    <!-- Customer Actions -->
+                    <div style="background: white; border-radius: 20px; padding: 30px; box-shadow: var(--shadow); margin-top: 30px;">
+                        <h4 style="margin-bottom: 24px;">💬 Need Help?</h4>
+                        <button onclick="openComplaintForm()" class="btn-primary" style="width: 100%; padding: 16px;">
+                            <i class="fas fa-comments"></i> Report Issue / Make Complaint
+                        </button>
+                        <div id="complaintForm" style="display: none; margin-top: 20px;">
+                            <textarea id="complaintText" placeholder="Describe your issue..." rows="4" style="width: 100%; padding: 16px; border: 2px solid #e5e7eb; border-radius: 12px; font-size: 16px; margin-bottom: 16px;"></textarea>
+                            <button onclick="submitComplaint()" class="btn-primary">Send Complaint</button>
+                            <button onclick="closeComplaintForm()" class="btn-secondary" style="margin-left: 12px;">Cancel</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="js/script.js"></script>
+    <script>
+// Enhanced track page functionality
+        function trackPackage() {
+            const trackingId = document.getElementById('trackingInput').value.toUpperCase().trim();
+            if (!trackingId) return;
+            
+            const shipments = JSON.parse(localStorage.getItem('shipments') || '{}');
+            const shipment = shipments[trackingId] || trackingData[trackingId];
+            
+            if (shipment) {
+                document.getElementById('trackResult').style.display = 'block';
+                showDetailedTracking(shipment);
+            } else {
+                document.getElementById('trackResult').innerHTML = '<div style="text-align: center; padding: 60px;"><i class="fas fa-search" style="font-size: 64px; color: #d1d5db; margin-bottom: 20px;"></i><h2 style="color: #6b7280;">Tracking ID not found</h2><p>Check your tracking number and try again</p></div>';
+                document.getElementById('trackResult').style.display = 'block';
+            }
+        }
+
+        
+        function showDetailedTracking(shipment) {
+            document.getElementById('statusIcon').innerHTML = getStatusIcon(shipment.status);
+            document.getElementById('statusTextLarge').textContent = `${getStatusIcon(shipment.status)} ${shipment.location}`;
+            document.getElementById('resultIdLarge').textContent = shipment.id;
+            document.getElementById('liveLocation').textContent = shipment.location;
+            
+            if (shipment.customs) {
+                document.getElementById('customsStatus').style.display = 'block';
+                document.getElementById('customsStatus').textContent = '🛃 Currently in Customs Clearance - Processing documents';
+            }
+            
+            document.getElementById('progressFillFull').style.width = shipment.progress + '%';
+            
+            // Update progress stops
+            document.querySelectorAll('.stop-full').forEach((stop, index) => {
+                stop.classList.toggle('active', shipment.progress >= (index * 20));
+            });
+            
+            // Package details
+            document.getElementById('packageDetails').innerHTML = `
+                <div style="margin-bottom: 16px;"><strong>Customer:</strong> ${shipment.customerName || shipment.customer}</div>
+                <div style="margin-bottom: 16px;"><strong>From:</strong> ${shipment.originCity || shipment.origin}</div>
+                <div style="margin-bottom: 16px;"><strong>To:</strong> ${shipment.destinationCity || shipment.destination}</div>
+                <div style="margin-bottom: 16px;"><strong>Weight:</strong> ${shipment.packageWeight}kg</div>
+                <div style="margin-bottom: 16px;"><strong>Value:</strong> $${shipment.packageValue}</div>
+                <div style="margin-bottom: 16px;"><strong>ETA:</strong> ${shipment.eta}</div>
+            `;
+            
+            // Proof
+            if (shipment.proof) {
+                document.getElementById('proofSection').innerHTML = `
+                    <img src="${shipment.proof}" style="max-width: 300px; max-height: 200px; object-fit: cover; border-radius: 12px; cursor: pointer; box-shadow: var(--shadow);" onclick="openImage('${shipment.proof}')">
+                    <p style="margin-top: 12px; color: var(--gray);">Click to enlarge proof photo</p>
+                `;
+            } else {
+                document.getElementById('proofSection').innerHTML = '<p style="color: var(--gray);">No proof photo available</p>';
+            }
+            
+            // Timeline
+            document.getElementById('timelineUpdates').innerHTML = shipment.updates.map(update => `
+                <div style="display: flex; align-items: center; gap: 16px; padding: 20px 0; border-bottom: 1px solid #e5e7eb;">
+                    <div style="width: 50px; height: 50px; background: rgba(37, 99, 235, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 18px; font-weight: 700;">
+                        ${getStatusIcon(update.status)}
+                    </div>
+                    <div>
+                        <div style="font-weight: 600; margin-bottom: 4px;">${update.status}</div>
+                        <div style="font-size: 14px; color: var(--gray);">${update.location}</div>
+                        <div style="font-size: 12px; color: var(--gray);">${update.date} ${update.time}</div>
+                    </div>
+                </div>
+            `).reverse().join('');
+        }
+        
+        function openImage(src) {
+            window.open(src, '_blank', 'width=800,height=600');
+        }
+        
+        function openComplaintForm() {
+            document.getElementById('complaintForm').style.display = 'block';
+            document.getElementById('complaintText').focus();
+        }
+        
+        function closeComplaintForm() {
+            document.getElementById('complaintForm').style.display = 'none';
+            document.getElementById('complaintText').value = '';
+        }
+        
+        function submitComplaint() {
+            const text = document.getElementById('complaintText').value.trim();
+            if (text) {
+                const trackingId = document.getElementById('trackingInput').value.toUpperCase().trim();
+                const complaint = {
+                    id: Date.now(),
+                    trackingId,
+                    customer: trackingData[trackingId]?.customer || 'Unknown',
+                    message: text,
+                    date: new Date().toLocaleString(),
+                    status: 'unread'
+                };
+                
+                const complaints = JSON.parse(localStorage.getItem('complaints') || '{}');
+                complaints[complaint.id] = complaint;
+                localStorage.setItem('complaints', JSON.stringify(complaints));
+                
+                alert('✅ Complaint submitted! Our admin team will respond soon.');
+                closeComplaintForm();
+            }
+        }
+        
+        // Check URL param for auto-tracking
+        window.addEventListener('load', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const trackingId = urlParams.get('id');
+            if (trackingId) {
+                document.getElementById('trackingInput').value = trackingId;
+                trackPackage();
+            }
+        });
+    </script>
+</body>
+</html>
+

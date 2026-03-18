@@ -1,0 +1,234 @@
+view<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Shipment - SwiftDrop</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-truck-fast"></i>
+                </div>
+                <div class="logo-text">
+                    <span class="logo-main">SwiftDrop</span>
+                    <span class="logo-sub">Logistics</span>
+                </div>
+            </a>
+            <a href="track.html" class="btn-primary">Track Package</a>
+        </div>
+    </nav>
+
+    <section style="padding: 100px 0; background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);">
+        <div class="container">
+            <div class="section-header" style="text-align: center; margin-bottom: 60px;">
+                <span class="section-tag">Book Shipment</span>
+                <h2>Schedule Your Delivery</h2>
+                <p>Fill out the form below to book your shipment. We'll confirm your booking instantly.</p>
+            </div>
+
+            <div style="max-width: 900px; margin: 0 auto;">
+                <form id="bookingForm" style="background: white; padding: 40px; border-radius: 24px; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);">
+                    <!-- Sender Details -->
+                    <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 24px; border-radius: 16px; margin-bottom: 30px;">
+                        <h3 style="margin: 0 0 20px 0; font-size: 22px;">
+                            <i class="fas fa-user" style="margin-right: 12px;"></i>Sender Details
+                        </h3>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Sender Name *</label>
+                            <input type="text" id="senderName" placeholder="John Doe" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Sender Phone *</label>
+                            <input type="tel" id="senderPhone" placeholder="+1 (555) 123-4567" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Sender Address *</label>
+                        <textarea id="senderAddress" rows="2" placeholder="123 Main St, Apt 4B, New York, NY 10001, USA" required></textarea>
+                    </div>
+
+                    <!-- Receiver Details -->
+                    <div style="background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%); color: white; padding: 24px; border-radius: 16px; margin-bottom: 30px;">
+                        <h3 style="margin: 0 0 20px 0; font-size: 22px;">
+                            <i class="fas fa-user-check" style="margin-right: 12px;"></i>Receiver Details
+                        </h3>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Receiver Name *</label>
+                            <input type="text" id="receiverName" placeholder="Jane Smith" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Receiver Phone *</label>
+                            <input type="tel" id="receiverPhone" placeholder="+44 20 7946 0958" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Receiver Address *</label>
+                        <textarea id="receiverAddress" rows="2" placeholder="456 High St, London, UK, SW1A 1AA" required></textarea>
+                    </div>
+
+                    <!-- Package Details -->
+                    <div style="background: linear-gradient(135deg, #10b981 0%, #059669 100%); color: white; padding: 24px; border-radius: 16px; margin-bottom: 30px;">
+                        <h3 style="margin: 0 0 20px 0; font-size: 22px;">
+                            <i class="fas fa-box" style="margin-right: 12px;"></i>Package Details
+                        </h3>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Package Type</label>
+                            <select id="packageType" required>
+                                <option value="">Select type</option>
+                                <option value="document">Document/Envelope</option>
+                                <option value="small">Small Package (<1kg)</option>
+                                <option value="medium">Medium Package (1-10kg)</option>
+                                <option value="large">Large Package (10-50kg)</option>
+                                <option value="oversize">Oversize/Fragile</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Weight (kg) *</label>
+                            <input type="number" id="packageWeight" step="0.1" placeholder="2.5" min="0.1" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Value ($)</label>
+                            <input type="number" id="packageValue" placeholder="500" min="0">
+                        </div>
+                        <div class="form-group">
+                            <label>Delivery Speed</label>
+                            <select id="deliverySpeed" required>
+                                <option value="">Select speed</option>
+                                <option value="express">Express (1-3 days)</option>
+                                <option value="standard">Standard (3-7 days)</option>
+                                <option value="economy">Economy (7-15 days)</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+
+                    <div class="form-group">
+                        <label>Special Instructions</label>
+                        <textarea id="specialInstructions" rows="3" placeholder="Fragile items, handle with care, keep upright, etc..."></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>📸 Upload Proof of Package (Optional)</label>
+                        <input type="file" id="proofPhoto" accept="image/*">
+                        <small>Upload photo of your package for faster processing and tracking</small>
+                    </div>
+
+
+                    <!-- Summary & Confirm -->
+                    <div style="background: #f8fafc; padding: 24px; border-radius: 16px; margin-bottom: 30px; border: 2px dashed #e2e8f0;">
+                        <h4 style="margin-bottom: 20px;">📋 Booking Summary</h4>
+                        <div id="bookingSummary" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px;"></div>
+                    </div>
+
+                    <div style="display: flex; gap: 20px; justify-content: center;">
+                        <button type="submit" class="btn-primary btn-large" style="min-width: 200px;">
+                            <i class="fas fa-paper-plane"></i> Confirm Booking
+                        </button>
+                        <button type="reset" class="btn-secondary btn-large" style="min-width: 200px;">
+                            <i class="fas fa-times"></i> Reset
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <script src="js/script.js"></script>
+    <script>
+        // Update summary preview
+        document.querySelectorAll('#bookingForm input, #bookingForm select, #bookingForm textarea').forEach(field => {
+            field.addEventListener('input', updateSummary);
+        });
+
+        function updateSummary() {
+            const summary = document.getElementById('bookingSummary');
+            summary.innerHTML = `
+                <div><strong>Sender:</strong> <span id="summarySender">${document.getElementById('senderName')?.value || 'Not set'}</span></div>
+                <div><strong>Receiver:</strong> <span id="summaryReceiver">${document.getElementById('receiverName')?.value || 'Not set'}</span></div>
+                <div><strong>Weight:</strong> <span id="summaryWeight">${document.getElementById('packageWeight')?.value || 'Not set'}kg</span></div>
+                <div><strong>Value:</strong> $<span id="summaryValue">${document.getElementById('packageValue')?.value || 'Not set'}</span></div>
+            `;
+        }
+
+        // Booking form submission
+        document.getElementById('bookingForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+
+            const proofPhoto = document.getElementById('proofPhoto').files[0];
+            const proofUrl = proofPhoto ? URL.createObjectURL(proofPhoto) : null;
+
+            const bookingData = {
+                id: 'SD' + Math.floor(Math.random() * 9000000 + 1000000), // Generate SDxxxxxxx format
+                senderName: document.getElementById('senderName').value,
+                senderPhone: document.getElementById('senderPhone').value,
+                senderAddress: document.getElementById('senderAddress').value,
+                receiverName: document.getElementById('receiverName').value,
+                receiverPhone: document.getElementById('receiverPhone').value,
+                receiverAddress: document.getElementById('receiverAddress').value,
+                packageType: document.getElementById('packageType').value,
+                packageWeight: document.getElementById('packageWeight').value,
+                packageValue: document.getElementById('packageValue').value,
+                deliverySpeed: document.getElementById('deliverySpeed').value,
+                specialInstructions: document.getElementById('specialInstructions').value,
+                proof: proofUrl,
+                status: 'pending',
+                progress: 0,
+                location: 'Pending Pickup',
+                eta: new Date(Date.now() + 7*24*60*60*1000).toISOString().split('T')[0],
+                updates: [{
+                    date: new Date().toISOString().split('T')[0],
+                    status: 'Booking Confirmed',
+                    location: 'Customer Submitted',
+                    time: new Date().toLocaleTimeString([], {hour: '2-digit', minute: '2-digit'})
+                }],
+                customer: document.getElementById('senderName').value,
+                customerEmail: document.getElementById('senderPhone').value,
+                originCity: document.getElementById('senderAddress').value.split(',')[0],
+                destinationCity: document.getElementById('receiverAddress').value.split(',')[0]
+            };
+
+
+            // Save booking
+            const bookings = JSON.parse(localStorage.getItem('customerBookings') || '[]');
+            bookings.push(bookingData);
+            localStorage.setItem('customerBookings', JSON.stringify(bookings));
+
+            alert(`✅ Booking confirmed!\nYour Booking ID: ${bookingData.id}\nWe will contact you shortly to schedule pickup.`);
+            
+            // Create shipment-like entry for admin
+            const adminShipments = JSON.parse(localStorage.getItem('shipments') || '{}');
+            adminShipments[bookingData.id] = {
+                ...bookingData,
+                status: 'booking_confirmed',
+                progress: 0,
+                updates: [{
+                    date: new Date().toISOString().split('T')[0],
+                    status: 'Booking Confirmed',
+                    time: new Date().toLocaleTimeString([], {hour: '2-digit', minute: '2-digit'})
+                }]
+            };
+            localStorage.setItem('shipments', JSON.stringify(adminShipments));
+            
+            this.reset();
+            updateSummary();
+        });
+    </script>
+</body>
+</html>

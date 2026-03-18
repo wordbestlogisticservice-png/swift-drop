@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login - SwiftDrop</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); min-height: 100vh; display: flex; align-items: center; justify-content: center;">
+    <div class="login-container">
+        <div class="login-card">
+            <div class="logo-section">
+                <div class="logo-icon-large">
+                    <i class="fas fa-truck-fast"></i>
+                </div>
+                <h2>SwiftDrop Admin</h2>
+            </div>
+            
+            <form id="adminLoginForm">
+                <div class="form-group">
+                    <label><i class="fas fa-user-shield"></i> Admin Username</label>
+                    <input type="text" id="adminUsername" placeholder="admin" required>
+                </div>
+                
+                <div class="form-group">
+                    <label><i class="fas fa-lock"></i> Password</label>
+                    <input type="password" id="adminPassword" placeholder="password" required>
+                </div>
+                
+                <button type="submit" class="btn-primary btn-full">
+                    <i class="fas fa-sign-in-alt"></i> Login
+                </button>
+            </form>
+            
+            <div style="text-align: center; margin-top: 20px;">
+                <p>Demo Login:</p>
+                <code>Username: admin<br>Password: admin</code>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('adminLoginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const username = document.getElementById('adminUsername').value;
+            const password = document.getElementById('adminPassword').value;
+            
+            if (username === 'admin' && password === 'admin') {
+                localStorage.setItem('adminLoggedIn', 'true');
+                window.location.href = 'admin-panel.html';
+            } else {
+                alert('Invalid credentials!');
+            }
+        });
+    </script>
+</body>
+</html>

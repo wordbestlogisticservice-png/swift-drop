@@ -1,0 +1,718 @@
+nd<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SwiftDrop Logistics - Professional Delivery Services</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-truck-fast"></i>
+                </div>
+                <div class="logo-text">
+                    <span class="logo-main">SwiftDrop</span>
+                    <span class="logo-sub">Logistics</span>
+                </div>
+            </a>
+            <div class="hamburger" onclick="toggleMobileMenu()">
+                <i class="fas fa-bars"></i>
+            </div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#track">Track</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="book.html" class="btn-nav">Ship Now</a></li>
+                <li><a href="admin-login.html" class="btn-admin">Admin</a></li>
+</xai:function_call > 
+
+<xai:function_call name="edit_file">
+<parameter name="path">c:/Users/Godse/Downloads/InstagramAutomation-master/professional-delivery/index.html
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-particles" id="particles"></div>
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <i class="fas fa-award"></i>
+                    #1 Logistics Company 2025
+                </div>
+                <h1>Global Shipping,<br><span class="highlight">Delivered Fast</span></h1>
+                <p class="hero-subtitle">Experience seamless international delivery to 200+ countries. Real-time tracking, insured shipments, and 24/7 customer support.</p>
+                
+                <!-- Quick Track Box -->
+                <div class="hero-track-box">
+                    <div class="track-input-wrapper">
+                        <i class="fas fa-barcode"></i>
+                        <input type="text" id="heroTrackInput" placeholder="Enter your tracking number (e.g., SD123456789)" maxlength="12">
+                    </div>
+                    <button onclick="trackFromHero()" class="btn-track">
+                        <i class="fas fa-search"></i> Track
+                    </button>
+                </div>
+                
+                <!-- Quick Stats -->
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">2M+</span>
+                        <span class="stat-label">Packages Delivered</span>
+                    </div>
+                    <div class="stat-divider"></div>
+                    <div class="stat-item">
+                        <span class="stat-number">200+</span>
+                        <span class="stat-label">Countries</span>
+                    </div>
+                    <div class="stat-divider"></div>
+                    <div class="stat-item">
+                        <span class="stat-number">99.9%</span>
+                        <span class="stat-label">On-Time</span>
+                    </div>
+                    <div class="stat-divider"></div>
+                    <div class="stat-item">
+                        <span class="stat-number">24/7</span>
+                        <span class="stat-label">Support</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <div class="mouse">
+                <div class="wheel"></div>
+            </div>
+            <span>Scroll to explore</span>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Our Services</span>
+                <h2>Comprehensive Logistics Solutions</h2>
+                <p>From document shipping to heavy cargo, we've got you covered with tailored delivery options</p>
+            </div>
+            
+            <div class="services-grid">
+                <div class="service-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="service-icon">
+                        <i class="fas fa-plane-departure"></i>
+                    </div>
+                    <h3>Air Freight</h3>
+                    <p>Express air delivery to any destination worldwide. Get your packages delivered within 24-72 hours with priority handling.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> 24-72 Hour Delivery</li>
+                        <li><i class="fas fa-check"></i> Priority Handling</li>
+                        <li><i class="fas fa-check"></i> Temperature Controlled</li>
+                    </ul>
+                    <a href="book.html" class="service-link">Book Now <i class="fas fa-arrow-right"></i></a>
+                </div>
+                
+                <div class="service-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="service-icon">
+                        <i class="fas fa-ship"></i>
+                    </div>
+                    <h3>Sea Freight</h3>
+                    <p>Cost-effective ocean shipping for large cargo volumes. Perfect for businesses shipping bulk goods internationally.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> 20-45 Day Transit</li>
+                        <li><i class="fas fa-check"></i> Full Container Load</li>
+                        <li><i class="fas fa-check"></i> Port-to-Port</li>
+                    </ul>
+                    <a href="book.html" class="service-link">Book Now <i class="fas fa-arrow-right"></i></a>
+                </div>
+                
+                <div class="service-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="service-icon">
+                        <i class="fas fa-truck-loading"></i>
+                    </div>
+                    <h3>Ground Shipping</h3>
+                    <p>Reliable door-to-door road freight across continents. Ideal for regional deliveries and last-mile solutions.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Door-to-Door</li>
+                        <li><i class="fas fa-check"></i> Real-time Tracking</li>
+                        <li><i class="fas fa-check"></i> Flexible Scheduling</li>
+                    </ul>
+                    <a href="book.html" class="service-link">Book Now <i class="fas fa-arrow-right"></i></a>
+                </div>
+                
+                <div class="service-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="service-icon">
+                        <i class="fas fa-warehouse"></i>
+                    </div>
+                    <h3>Warehousing</h3>
+                    <p>Secure storage facilities with state-of-the-art inventory management. Scale your storage needs on-demand.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> 24/7 Security</li>
+                        <li><i class="fas fa-check"></i> Climate Control</li>
+                        <li><i class="fas fa-check"></i> Inventory Management</li>
+                    </ul>
+                    <a href="book.html" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                </div>
+                
+                <div class="service-card" data-aos="fade-up" data-aos-delay="500">
+                    <div class="service-icon">
+                        <i class="fas fa-box-open"></i>
+                    </div>
+                    <h3>Custom Packaging</h3>
+                    <p>Professional packaging solutions to protect your valuable goods. From fragile items to heavy machinery.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Custom Sizes</li>
+                        <li><i class="fas fa-check"></i> Fragile Handling</li>
+                        <li><i class="fas fa-check"></i> Insurance Available</li>
+                    </ul>
+                    <a href="book.html" class="service-link">Book Now <i class="fas fa-arrow-right"></i></a>
+                </div>
+                
+                <div class="service-card" data-aos="fade-up" data-aos-delay="600">
+                    <div class="service-icon">
+                        <i class="fas fa-file-signature"></i>
+                    </div>
+                    <h3>Customs Clearance</h3>
+                    <p>Hassle-free customs documentation and clearance services. We handle the paperwork so you don't have to.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Expert Documentation</li>
+                        <li><i class="fas fa-check"></i> Duty Calculations</li>
+                        <li><i class="fas fa-check"></i> Import/Export Support</li>
+                    </ul>
+                    <a href="book.html" class="service-link">Book Now <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="how-it-works">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">How It Works</span>
+                <h2>Simple 4-Step Process</h2>
+                <p>Shipping with SwiftDrop is easy. Follow these simple steps</p>
+            </div>
+            
+            <div class="steps-container">
+                <div class="step-item" data-aos="fade-right" data-aos-delay="100">
+                    <div class="step-number">01</div>
+                    <div class="step-icon">
+                        <i class="fas fa-calendar-check"></i>
+                    </div>
+                    <h3>Book Your Shipment</h3>
+                    <p>Schedule your pickup online or through our app. Enter package details and choose your shipping method.</p>
+                </div>
+                
+                <div class="step-connector" data-aos="fade-up" data-aos-delay="200">
+                    <i class="fas fa-arrow-right"></i>
+                </div>
+                
+                <div class="step-item" data-aos="fade-up" data-aos-delay="200">
+                    <div class="step-number">02</div>
+                    <div class="step-icon">
+                        <i class="fas fa-qrcode"></i>
+                    </div>
+                    <h3>Get Tracking ID</h3>
+                    <p>Receive your unique tracking number instantly via email. Use it to monitor your shipment in real-time.</p>
+                </div>
+                
+                <div class="step-connector" data-aos="fade-up" data-aos-delay="300">
+                    <i class="fas fa-arrow-right"></i>
+                </div>
+                
+                <div class="step-item" data-aos="fade-up" data-aos-delay="300">
+                    <div class="step-number">03</div>
+                    <div class="step-icon">
+                        <i class="fas fa-location-dot"></i>
+                    </div>
+                    <h3>Track Live</h3>
+                    <p>Monitor your package journey from pickup to delivery. Get notifications at every milestone.</p>
+                </div>
+                
+                <div class="step-connector" data-aos="fade-up" data-aos-delay="400">
+                    <i class="fas fa-arrow-right"></i>
+                </div>
+                
+                <div class="step-item" data-aos="fade-left" data-aos-delay="400">
+                    <div class="step-number">04</div>
+                    <div class="step-icon">
+                        <i class="fas fa-circle-check"></i>
+                    </div>
+                    <h3>Delivered</h3>
+                    <p>Your package arrives safely at its destination. Get delivery confirmation and proof of delivery.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Track Section -->
+    <section class="track-section" id="track">
+        <div class="container">
+            <div class="track-wrapper">
+                <div class="track-content">
+                    <span class="section-tag">Track Shipment</span>
+                    <h2>Track Your Package</h2>
+                    <p>Enter your tracking number to get real-time updates on your shipment status.</p>
+                    
+                    <div class="track-form">
+                        <div class="track-input-group">
+                            <i class="fas fa-barcode"></i>
+                            <input type="text" id="trackingInput" placeholder="Enter tracking number (e.g., SD123456789)">
+                        </div>
+                        <button onclick="trackPackage()" class="btn-track">
+                            <i class="fas fa-search"></i> Track
+                        </button>
+                    </div>
+                    
+                    <div class="sample-tracking">
+                        <span>Try these samples:</span>
+                        <button class="sample-btn" onclick="useSample('SD123456789')">SD123456789</button>
+                        <button class="sample-btn" onclick="useSample('SD987654321')">SD987654321</button>
+                        <button class="sample-btn" onclick="useSample('SD555666777')">SD555666777</button>
+                    </div>
+                </div>
+                
+                <!-- Tracking Result -->
+                <div class="track-result" id="trackResult" style="display: none;">
+                    <div class="result-header">
+                        <div class="result-status">
+                            <i class="fas fa-truck"></i>
+                            <span id="statusText">In Transit</span>
+                        </div>
+                        <div class="result-id">
+                            <strong>Tracking ID:</strong> <span id="resultId">SD123456789</span>
+                        </div>
+                    </div>
+                    
+                    <div class="progress-track">
+                        <div class="progress-line">
+                            <div class="progress-fill" id="progressFill"></div>
+                        </div>
+                        <div class="progress-stops">
+                            <div class="stop active" data-step="1">
+                                <i class="fas fa-box"></i>
+                                <span>Picked Up</span>
+                            </div>
+                            <div class="stop" data-step="2">
+                                <i class="fas fa-warehouse"></i>
+                                <span>Processing</span>
+                            </div>
+                            <div class="stop" data-step="3">
+                                <i class="fas fa-plane"></i>
+                                <span>In Transit</span>
+                            </div>
+                            <div class="stop" data-step="4">
+                                <i class="fas fa-home"></i>
+                                <span>Delivered</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="result-details">
+                        <div class="detail-row">
+                            <span class="detail-label">Origin:</span>
+                            <span class="detail-value" id="originDetail">New York, NY</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label">Destination:</span>
+                            <span class="detail-value" id="destDetail">Los Angeles, CA</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label">Estimated Delivery:</span>
+                            <span class="detail-value" id="etaDetail">Jan 25, 2025</span>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline" id="timeline">
+                        <!-- Timeline items will be inserted here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section" id="about">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-image" data-aos="fade-right">
+                    <div class="about-img-main">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <div class="about-img-badge">
+                        <span>Since</span>
+                        <strong>2010</strong>
+                    </div>
+                </div>
+                
+                <div class="about-content" data-aos="fade-left">
+                    <span class="section-tag">About Us</span>
+                    <h2>Leading Global Logistics Provider</h2>
+                    <p>SwiftDrop Logistics has been transforming the delivery industry since 2010. With a commitment to excellence and innovation, we've built a reputation for reliability, speed, and exceptional customer service.</p>
+                    <p>Our state-of-the-art technology platform and worldwide network of partners ensure your packages are always in safe hands — from pickup to final delivery.</p>
+                    
+                    <div class="about-features">
+                        <div class="about-feature">
+                            <i class="fas fa-certificate"></i>
+                            <div>
+                                <h4>ISO 9001 Certified</h4>
+                                <p>International quality standard</p>
+                            </div>
+                        </div>
+                        <div class="about-feature">
+                            <i class="fas fa-shield-halved"></i>
+                            <div>
+                                <h4>Fully Insured</h4>
+                                <p>Up to $50,000 coverage</p>
+                            </div>
+                        </div>
+                        <div class="about-feature">
+                            <i class="fas fa-user-headset"></i>
+                            <div>
+                                <h4>Dedicated Support</h4>
+                                <p>24/7 customer assistance</p>
+                            </div>
+                        </div>
+                        <div class="about-feature">
+                            <i class="fas fa-location-crosshairs"></i>
+                            <div>
+                                <h4>GPS Tracking</h4>
+                                <p>Real-time location updates</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <a href="#contact" class="btn-primary">
+                        <i class="fas fa-phone"></i> Contact Us
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Testimonials</span>
+                <h2>What Our Clients Say</h2>
+                <p>Trusted by businesses and individuals worldwide</p>
+            </div>
+            
+            <div class="testimonials-grid">
+                <div class="testimonial-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="testimonial-header">
+                        <div class="testimonial-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div>
+                            <h4>Sarah Johnson</h4>
+                            <span>E-commerce Business Owner</span>
+                        </div>
+                    </div>
+                    <p>"SwiftDrop has transformed our shipping process. Their tracking system gives our customers peace of mind, and deliveries are always on time!"</p>
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="testimonial-header">
+                        <div class="testimonial-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div>
+                            <h4>Michael Chen</h4>
+                            <span>International Shipper</span>
+                        </div>
+                    </div>
+                    <p>"I've tried many logistics companies, but SwiftDrop is by far the best. Their customs clearance service saved me so much time and hassle."</p>
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="testimonial-header">
+                        <div class="testimonial-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div>
+                            <h4>Emma Williams</h4>
+                            <span>Frequent Shipper</span>
+                        </div>
+                    </div>
+                    <p>"The tracking updates are amazing! I always know exactly where my package is. Customer support is always helpful when I need assistance."</p>
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to Ship?</h2>
+                <p>Join millions of satisfied customers who trust SwiftDrop for their delivery needs.</p>
+                <div class="cta-buttons">
+                    <a href="book.html" class="btn-primary btn-large">
+                        <i class="fas fa-box"></i> Ship Now
+                    </a>
+                    <a href="#contact" class="btn-secondary btn-large">
+                        <i class="fas fa-comments"></i> Get Quote
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section" id="contact">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Contact Us</span>
+                <h2>Get In Touch</h2>
+                <p>Have questions? We're here to help</p>
+            </div>
+            
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div>
+                            <h4>Headquarters</h4>
+                            <p>1500 Commerce Street, Suite 800<br>New York, NY 10001, USA</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <div>
+                            <h4>Phone</h4>
+                            <p>+1 (800) 555-SWIFT<br>+1 (212) 555-0199</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div>
+                            <h4>Email</h4>
+                            <p>support@swiftdrop.com<br>sales@swiftdrop.com</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div>
+                            <h4>Working Hours</h4>
+                            <p>24/7 Customer Support<br>Office: Mon-Fri 9AM-6PM EST</p>
+                        </div>
+                    </div>
+                    
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                
+                <form class="contact-form" id="contactForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="contactName">Full Name</label>
+                            <input type="text" id="contactName" placeholder="John Doe" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="contactEmail">Email Address</label>
+                            <input type="email" id="contactEmail" placeholder="john@example.com" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="contactSubject">Subject</label>
+                        <input type="text" id="contactSubject" placeholder="How can we help?">
+                    </div>
+                    <div class="form-group">
+                        <label for="contactMessage">Message</label>
+                        <textarea id="contactMessage" rows="5" placeholder="Your message here..." required></textarea>
+                    </div>
+                    <button type="submit" class="btn-submit">
+                        <i class="fas fa-paper-plane"></i> Send Message
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-main">
+            <div class="container">
+                <div class="footer-grid">
+                    <div class="footer-brand">
+                        <a href="index.html" class="logo">
+                            <div class="logo-icon">
+                                <i class="fas fa-truck-fast"></i>
+                            </div>
+                            <div class="logo-text">
+                                <span class="logo-main">SwiftDrop</span>
+                                <span class="logo-sub">Logistics</span>
+                            </div>
+                        </a>
+                        <p>Your trusted partner for global logistics. Delivering excellence across 200+ countries since 2010.</p>
+                        <div class="footer-badges">
+                            <span class="badge"><i class="fas fa-award"></i> ISO 9001</span>
+                            <span class="badge"><i class="fas fa-shield-alt"></i> Secure</span>
+                        </div>
+                    </div>
+                    
+                    <div class="footer-links">
+                        <h4>Quick Links</h4>
+                        <ul>
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="#services">Services</a></li>
+                            <li><a href="#track">Track Package</a></li>
+                            <li><a href="book.html">Book Shipment</a></li>
+                            <li><a href="#about">About Us</a></li>
+                            <li><a href="#contact">Contact</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-links">
+                        <h4>Services</h4>
+                        <ul>
+                            <li><a href="#">Air Freight</a></li>
+                            <li><a href="#">Sea Freight</a></li>
+                            <li><a href="#">Ground Shipping</a></li>
+                            <li><a href="#">Warehousing</a></li>
+                            <li><a href="#">Custom Packaging</a></li>
+                            <li><a href="#">Customs Clearance</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-links">
+                        <h4>Account</h4>
+                        <ul>
+                            <li><a href="login.html">Login</a></li>
+                            <li><a href="signup.html">Register</a></li>
+                            <li><a href="dashboard.html">My Dashboard</a></li>
+                            <li><a href="#">Track Orders</a></li>
+                            <li><a href="#">Shipping Rates</a></li>
+                            <li><a href="admin-login.html">Admin Portal</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <div class="container">
+                <p>&copy; 2025 SwiftDrop Logistics. All Rights Reserved.</p>
+                <div class="footer-legal">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Cookie Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Live Chat Widget -->
+    <div class="chat-widget" id="chatWidget">
+        <button class="chat-toggle-btn" onclick="toggleChat()">
+            <i class="fas fa-comments"></i>
+            <span class="chat-badge">24/7</span>
+        </button>
+        
+        <div class="chat-box" id="chatBox" style="display: none;">
+            <div class="chat-header">
+                <div class="chat-title">
+                    <i class="fas fa-robot"></i>
+                    <span>SwiftDrop Assistant</span>
+                </div>
+                <button class="chat-close" onclick="toggleChat()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="chat-messages" id="chatMessages">
+                <div class="chat-message bot">
+                    <div class="message-content">
+                        <p>Hello! 👋 Welcome to SwiftDrop Logistics. How can I help you today?</p>
+                    </div>
+                    <span class="message-time">Just now</span>
+                </div>
+            </div>
+            <div class="chat-input-area">
+                <input type="text" id="chatInput" placeholder="Type your message..." onkeypress="handleChatKeyPress(event)">
+                <button onclick="sendChatMessage()">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Smartsupp Live Chat script -->
+    <script type="text/javascript">
+var _smartsupp = _smartsupp || {};
+_smartsupp.key = '47029c8eeddda3d95ec22cae0d46bc427eb7095e';
+window.smartsupp||(function(d) {
+  var s,c,o=smartsupp=function(){ o._.push(arguments)};o._=[];
+  s=d.getElementsByTagName('script')[0];c=d.createElement('script');
+  c.type='text/javascript';c.charset='utf-8';c.async=true;
+  c.src='https://www.smartsuppchat.com/loader.js?';s.parentNode.insertBefore(c,s);
+})(document);
+</script>
+<noscript>Powered by <a href="https://www.smartsupp.com" target="_blank">Smartsupp</a></noscript>
+
+    <!-- Smartsupp Live Chat script -->
+    <script type="text/javascript">
+var _smartsupp = _smartsupp || {};
+_smartsupp.key = '47029c8eeddda3d95ec22cae0d46bc427eb7095e';
+window.smartsupp||(function(d) {
+  var s,c,o=smartsupp=function(){ o._.push(arguments)};o._=[];
+  s=d.getElementsByTagName('script')[0];c=d.createElement('script');
+  c.type='text/javascript';c.charset='utf-8';c.async=true;
+  c.src='https://www.smartsuppchat.com/loader.js?';s.parentNode.insertBefore(c,s);
+})(document);
+</script>
+<noscript>Powered by <a href="https://www.smartsupp.com" target="_blank">Smartsupp</a></noscript>
+
+
+    <script src="js/script.js"></script>
+</body>
+</html>
+

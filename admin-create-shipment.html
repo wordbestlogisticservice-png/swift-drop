@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Shipment - SwiftDrop Admin</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <div class="logo-icon"><i class="fas fa-truck-fast"></i></div>
+                <div class="logo-text">
+                    <span class="logo-main">SwiftDrop</span>
+                    <span class="logo-sub">Logistics</span>
+                </div>
+            </a>
+            <a href="admin-login.html" class="btn-login">Admin</a>
+        </div>
+    </nav>
+    
+    <div class="main-content" style="margin-left: 0; padding: 40px;">
+        <div class="container">
+            <div class="header">
+                <h1><i class="fas fa-plus-circle"></i> Create New Shipment</h1>
+                <a href="admin-panel.html" class="btn-secondary"><i class="fas fa-arrow-left"></i> Back to Dashboard</a>
+            </div>
+            
+            <div class="form-container" style="max-width: 800px; margin: 0 auto;">
+                <form id="createShipmentForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Customer Name</label>
+                            <input type="text" id="customerName" placeholder="John Smith" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Customer Email</label>
+                            <input type="email" id="customerEmail" placeholder="john@example.com" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Sender Name</label>
+                            <input type="text" id="senderName" placeholder="John Doe" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Sender Phone</label>
+                            <input type="tel" id="senderPhone" placeholder="+1 555-123-4567" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Sender Address</label>
+                        <textarea id="senderAddress" rows="2" placeholder="123 Main St, New York, NY 10001" required></textarea>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Receiver Name</label>
+                            <input type="text" id="receiverName" placeholder="Jane Smith" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Receiver Phone</label>
+                            <input type="tel" id="receiverPhone" placeholder="+44 20 7946 0958" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Receiver Address</label>
+                        <textarea id="receiverAddress" rows="2" placeholder="456 High St, London, UK" required></textarea>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Package Weight (kg)</label>
+                            <input type="number" id="packageWeight" placeholder="5.5" step="0.1" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Value ($)</label>
+                            <input type="number" id="packageValue" placeholder="1500" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Shipping Method</label>
+                            <select id="shippingMethod" required>
+                                <option value="">Select method</option>
+                                <option value="air">Air Freight (Fast)</option>
+                                <option value="sea">Sea Freight (Economic)</option>
+                                <option value="ground">Ground (Regional)</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Priority</label>
+                            <select id="priority" required>
+                                <option value="">Select priority</option>
+                                <option value="normal">Normal</option>
+                                <option value="urgent">Urgent (+25%)</option>
+                                <option value="express">Express (+50%)</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Special Instructions</label>
+                        <textarea id="specialInstructions" rows="4" placeholder="Fragile items, handle with care..."></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Upload Proof Photo</label>
+                        <input type="file" id="proofPhoto" accept="image/*">
+                        <small>Upload photo of package (optional)</small>
+                    </div>
+                    
+                    <div class="form-actions">
+                        <button type="submit" class="btn-primary btn-large">
+                            <i class="fas fa-paper-plane"></i> Create Shipment
+                        </button>
+                        <button type="reset" class="btn-secondary btn-large">
+                            <i class="fas fa-refresh"></i> Reset Form
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('createShipmentForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formData = {
+                id: 'SD' + Date.now().toString().slice(-7),
+                customerName: document.getElementById('customerName').value,
+                customerEmail: document.getElementById('customerEmail').value,
+                senderName: document.getElementById('senderName').value,
+                senderPhone: document.getElementById('senderPhone').value,
+                senderAddress: document.getElementById('senderAddress').value,
+                receiverName: document.getElementById('receiverName').value,
+                receiverPhone: document.getElementById('receiverPhone').value,
+                receiverAddress: document.getElementById('receiverAddress').value,
+                packageWeight: document.getElementById('packageWeight').value,
+                packageValue: document.getElementById('packageValue').value,
+                shippingMethod: document.getElementById('shippingMethod').value,
+                priority: document.getElementById('priority').value,
+                specialInstructions: document.getElementById('specialInstructions').value,
+                status: 'pending',
+                progress: 0,
+                location: 'Pending Pickup',
+                eta: new Date(Date.now() + 7*24*60*60*1000).toISOString().split('T')[0],
+                customs: false,
+                proof: document.getElementById('proofPhoto').files[0] ? URL.createObjectURL(document.getElementById('proofPhoto').files[0]) : null,
+                updates: [{
+                    date: new Date().toISOString().split('T')[0],
+                    location: 'New York, NY',
+                    status: 'Shipment Created',
+                    time: new Date().toLocaleTimeString([], {hour: '2-digit', minute: '2-digit'})
+                }]
+            };
+            
+            const shipments = JSON.parse(localStorage.getItem('shipments') || '{}');
+            shipments[formData.id] = formData;
+            localStorage.setItem('shipments', JSON.stringify(shipments));
+            
+            alert(`✅ Shipment created successfully!\nTracking ID: ${formData.id}\nCustomer notified via email.\n\nNow check admin-panel.html to see it listed!`);
+            window.location.href = 'admin-panel.html';
+            
+            this.reset();
+        });
+    </script>
+</body>
+</html>
+
